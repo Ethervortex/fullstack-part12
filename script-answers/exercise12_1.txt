@@ -1,0 +1,13 @@
+Script started on 2023-05-17 10:25:32+03:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="80" LINES="24"]
+[?2004h]0;teemu@hal: ~/Documents/part12-containers-applications/script-answers[01;32mteemu@hal[00m:[01;34m~/Documents/part12-containers-applications/script-answers[00m$ curl http:/ /helsinki.fi
+[?2004l<html>
+<head><title>301 Moved Permanently</title></head>
+<body>
+<center><h1>301 Moved Permanently</h1></center>
+<hr><center>nginx/1.20.1</center>
+</body>
+</html>
+[?2004h]0;teemu@hal: ~/Documents/part12-containers-applications/script-answers[01;32mteemu@hal[00m:[01;34m~/Documents/part12-containers-applications/script-answers[00m$ [?2004l
+exit
+
+Script done on 2023-05-17 10:26:00+03:00 [COMMAND_EXIT_CODE="0"]
