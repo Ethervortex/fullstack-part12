@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   mongo:
-    image: mongo
+    image: mongo:4.4.18
     ports:
       - 3456:27017
     environment:
@@ -12,3 +12,7 @@ services:
     volumes:
       - ./mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
       - ./mongo_data:/data/db
+  redis:
+    image: redis
+    ports:
+      - 6379:6379

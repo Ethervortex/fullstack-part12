@@ -1,0 +1,208 @@
+Script started on 2023-05-17 14:12:30+03:00 [TERM="xterm-256color" TTY="/dev/pts/2" COLUMNS="80" LINES="24"]
+[?2004h]0;teemu@hal: ~/Documents/part12-containers-applications/script-answers[01;32mteemu@hal[00m:[01;34m~/Documents/part12-containers-applications/script-answers[00m$ exitnode -v[3Pexit[K[K[K[Ksudo docker  ps
+[?2004l[sudo] password for teemu: 
+CONTAINER ID   IMAGE          COMMAND                  CREATED         STATUS         PORTS                                         NAMES
+c8ba4402905a   mongo:4.4.18   "docker-entrypoint.s…"   2 minutes ago   Up 2 minutes   0.0.0.0:3456->27017/tcp, :::3456->27017/tcp   todo-backend-mongo-1
+[?2004h]0;teemu@hal: ~/Documents/part12-containers-applications/script-answers[01;32mteemu@hal[00m:[01;34m~/Documents/part12-containers-applications/script-answers[00m$ sudo docker  exec -it c8
+[?2004l"docker exec" requires at least 2 arguments.
+See 'docker exec --help'.
+
+Usage:  docker exec [OPTIONS] CONTAINER COMMAND [ARG...]
+
+Execute a command in a running container
+[?2004h]0;teemu@hal: ~/Documents/part12-containers-applications/script-answers[01;32mteemu@hal[00m:[01;34m~/Documents/part12-containers-applications/script-answers[00m$ sudo docker exec -it c8 bash
+[?2004lroot@c8ba4402905a:/# mongosh -u root -p example
+bash: mongosh: command not found
+root@c8ba4402905a:/# mongosh
+bash: mongosh: command not found
+root@c8ba4402905a:/# apt-get update
+0% [Working]            Ign:1 http://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 InRelease
+0% [Connecting to archive.ubuntu.com (91.189.91.38)] [Connecting to security.ub                                                                               Get:2 http://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 Release [3094 B]
+                                                                               0% [Waiting for headers] [Waiting for headers] [2 Release 3094 B/3094 B 100%]                                                                             0% [Waiting for headers] [Waiting for headers]                                              Get:3 http://security.ubuntu.com/ubuntu focal-security InRelease [114 kB]
+0% [Waiting for headers] [3 InRelease 3853 B/114 kB 3%] [Waiting for headers]                                                                             Get:4 http://archive.ubuntu.com/ubuntu focal InRelease [265 kB]
+0% [4 InRelease 6647 B/265 kB 3%] [3 InRelease 13.6 kB/114 kB 12%] [Waiting for                                                                               Get:5 http://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 Release.gpg [801 B]
+0% [4 InRelease 38.6 kB/265 kB 15%] [3 InRelease 38.6 kB/114 kB 34%] [5 Release                                                                               0% [4 InRelease 41.3 kB/265 kB 16%] [3 InRelease 41.3 kB/114 kB 36%]0% [4 InRelease 64.9 kB/265 kB 25%] [3 InRelease 64.9 kB/114 kB 57%]                                                                    0% [4 InRelease 123 kB/265 kB 47%] [Waiting for headers]                                                        Get:6 http://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4/multiverse amd64 Packages [42.1 kB]
+0% [4 InRelease 252 kB/265 kB 95%] [6 Packages 1388 B/42.1 kB 3%]0% [4 InRelease 265 kB/265 kB 100%] [6 Packages 42.1 kB/42.1 kB 100%]                                                                     0% [Waiting for headers]0% [6 Packages store 0 B] [Waiting for headers] [Waiting for headers]                                                                     0% [Waiting for headers] [Waiting for headers]                                              Get:7 http://archive.ubuntu.com/ubuntu focal-updates InRelease [114 kB]
+                                              Get:8 http://security.ubuntu.com/ubuntu focal-security/multiverse amd64 Packages [28.5 kB]
+0% [7 InRelease 3869 B/114 kB 3%] [8 Packages 5345 B/28.5 kB 19%]                                                                 0% [7 InRelease 108 kB/114 kB 95%]0% [8 Packages store 0 B] [Waiting for headers]                                               0% [Waiting for headers] [Waiting for headers]0% [Waiting for headers] [Waiting for headers]                                              Get:9 http://archive.ubuntu.com/ubuntu focal-backports InRelease [108 kB]
+0% [9 InRelease 5257 B/108 kB 5%] [Waiting for headers]                                                       Get:10 http://security.ubuntu.com/ubuntu focal-security/restricted amd64 Packages [2228 kB]
+0% [9 InRelease 17.7 kB/108 kB 16%] [10 Packages 2565 B/2228 kB 0%]                                                                   0% [10 Packages 41.4 kB/2228 kB 2%]0% [Waiting for headers] [10 Packages 63.6 kB/2228 kB 3%]                                                         Get:11 http://archive.ubuntu.com/ubuntu focal/multiverse amd64 Packages [177 kB]
+0% [11 Packages 1179 B/177 kB 1%] [10 Packages 139 kB/2228 kB 6%]17% [11 Packages 152 kB/177 kB 86%] [10 Packages 183 kB/2228 kB 8%]                                                                   17% [Waiting for headers] [10 Packages 197 kB/2228 kB 9%]                                                         Get:12 http://archive.ubuntu.com/ubuntu focal/universe amd64 Packages [11.3 MB]
+17% [12 Packages 11.4 kB/11.3 MB 0%] [10 Packages 200 kB/2228 kB 9%]17% [11 Packages store 0 B] [12 Packages 19.8 kB/11.3 MB 0%] [10 Packages 200 k                                                                               18% [12 Packages 67.0 kB/11.3 MB 1%] [10 Packages 211 kB/2228 kB 9%]25% [12 Packages 1989 kB/11.3 MB 18%] [10 Packages 588 kB/2228 kB 26%]32% [12 Packages 4356 kB/11.3 MB 38%] [10 Packages 797 kB/2228 kB 36%]40% [12 Packages 6739 kB/11.3 MB 59%] [10 Packages 1105 kB/2228 kB 50%]48% [12 Packages 8877 kB/11.3 MB 78%] [10 Packages 1552 kB/2228 kB 70%]56% [12 Packages 11.3 MB/11.3 MB 100%] [10 Packages 1829 kB/2228 kB 82%]                                                                        57% [Waiting for headers] [10 Packages 1857 kB/2228 kB 83%]                                                           Get:13 http://archive.ubuntu.com/ubuntu focal/restricted amd64 Packages [33.4 kB]
+57% [13 Packages 0 B/33.4 kB 0%] [10 Packages 1857 kB/2228 kB 83%]                                                                  Get:14 http://archive.ubuntu.com/ubuntu focal/main amd64 Packages [1275 kB]
+57% [12 Packages store 0 B] [14 Packages 65.5 kB/1275 kB 5%] [10 Packages 1857                                                                                61% [12 Packages store 0 B] [10 Packages 1976 kB/2228 kB 89%]                                                             Get:15 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 Packages [1342 kB]
+61% [12 Packages store 0 B] [15 Packages 4226 B/1342 kB 0%] [10 Packages 1976 k                                                                               66% [12 Packages store 0 B] [10 Packages 2143 kB/2228 kB 96%]                                                             Get:16 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 Packages [3167 kB]
+66% [12 Packages store 0 B] [16 Packages 5360 B/3167 kB 0%] [10 Packages 2143 k                                                                               Get:17 http://security.ubuntu.com/ubuntu focal-security/main amd64 Packages [2690 kB]
+68% [12 Packages store 0 B] [16 Packages 851 kB/3167 kB 27%] [17 Packages 504 B76% [12 Packages store 0 B] [16 Packages 3153 kB/3167 kB 100%] [17 Packages 289                                                                               76% [12 Packages store 0 B] [17 Packages 295 kB/2690 kB 11%]                                                            Get:18 http://archive.ubuntu.com/ubuntu focal-updates/restricted amd64 Packages [2366 kB]
+76% [12 Packages store 0 B] [18 Packages 0 B/2366 kB 0%] [17 Packages 295 kB/26                                                                               78% [18 Packages 476 kB/2366 kB 20%] [17 Packages 348 kB/2690 kB 13%]78% [13 Packages store 0 B] [18 Packages 482 kB/2366 kB 20%] [17 Packages 348 k                                                                               79% [18 Packages 520 kB/2366 kB 22%] [17 Packages 353 kB/2690 kB 13%]79% [14 Packages store 0 B] [18 Packages 520 kB/2366 kB 22%] [17 Packages 353 k                                                                               82% [18 Packages 1138 kB/2366 kB 48%] [17 Packages 445 kB/2690 kB 17%]82% [15 Packages store 0 B] [18 Packages 1138 kB/2366 kB 48%] [17 Packages 445                                                                                83% [18 Packages 1480 kB/2366 kB 63%] [17 Packages 484 kB/2690 kB 18%]83% [10 Packages store 0 B] [18 Packages 1480 kB/2366 kB 63%] [17 Packages 484                                                                                87% [10 Packages store 0 B] [17 Packages 700 kB/2690 kB 26%]                                                            Get:19 http://archive.ubuntu.com/ubuntu focal-updates/multiverse amd64 Packages [31.2 kB]
+87% [10 Packages store 0 B] [19 Packages 0 B/31.2 kB 0%] [17 Packages 700 kB/26                                                                               87% [10 Packages store 0 B] [17 Packages 700 kB/2690 kB 26%]87% [Connecting to archive.ubuntu.com (91.189.91.38)] [17 Packages 750 kB/2690 87% [16 Packages store 0 B] [Connecting to archive.ubuntu.com (91.189.91.38)] [                                                                               Get:20 http://archive.ubuntu.com/ubuntu focal-backports/universe amd64 Packages [28.6 kB]
+88% [16 Packages store 0 B] [20 Packages 3957 B/28.6 kB 14%] [17 Packages 847 k                                                                               88% [20 Packages 27.6 kB/28.6 kB 96%] [17 Packages 928 kB/2690 kB 34%]88% [18 Packages store 0 B] [20 Packages 27.6 kB/28.6 kB 96%] [17 Packages 928 88% [18 Packages store 0 B] [17 Packages 928 kB/2690 kB 34%]       3830 kB/s 0s                                                                               Get:21 http://archive.ubuntu.com/ubuntu focal-backports/main amd64 Packages [55.2 kB]
+89% [18 Packages store 0 B] [21 Packages 1181 B/55.2 kB 2%] [17 Packages 1000 k                                                                               89% [21 Packages 48.4 kB/55.2 kB 88%] [17 Packages 1072 kB/2690 kB 40%]89% [19 Packages store 0 B] [21 Packages 48.4 kB/55.2 kB 88%] [17 Packages 1072                                                                               90% [21 Packages 51.1 kB/55.2 kB 93%] [17 Packages 1075 kB/2690 kB 40%]90% [20 Packages store 0 B] [21 Packages 51.1 kB/55.2 kB 93%] [17 Packages 1075                                                                               90% [21 Packages 53.9 kB/55.2 kB 98%] [17 Packages 1075 kB/2690 kB 40%]90% [17 Packages 1075 kB/2690 kB 40%]                              3830 kB/s 0s90% [21 Packages store 0 B] [17 Packages 1075 kB/2690 kB 40%]      3830 kB/s 0s91% [17 Packages 1080 kB/2690 kB 40%]                              3830 kB/s 0s92% [17 Packages 1375 kB/2690 kB 51%]                              3830 kB/s 0s93% [17 Packages 1672 kB/2690 kB 62%]                              3830 kB/s 0s94% [17 Packages 1974 kB/2690 kB 73%]                              3830 kB/s 0s95% [17 Packages 2291 kB/2690 kB 85%]                              3830 kB/s 0s96% [17 Packages 2604 kB/2690 kB 97%]                              3830 kB/s 0s96% [Waiting for headers]                                          3830 kB/s 0s                                                                               Get:22 http://security.ubuntu.com/ubuntu focal-security/universe amd64 Packages [1046 kB]
+96% [22 Packages 49.7 kB/1046 kB 5%]                               3830 kB/s 0s96% [17 Packages store 0 B] [22 Packages 49.7 kB/1046 kB 5%]       3830 kB/s 0s97% [22 Packages 219 kB/1046 kB 21%]                               3830 kB/s 0s98% [22 Packages 555 kB/1046 kB 53%]                               3830 kB/s 0s99% [22 Packages 860 kB/1046 kB 82%]                               3830 kB/s 0s99% [22 Packages 913 kB/1046 kB 87%]                               3830 kB/s 0s100% [Working]                                                     3830 kB/s 0s100% [22 Packages store 0 B]                                       3830 kB/s 0s100% [Working]                                                     3830 kB/s 0s                                                                               Fetched 26.5 MB in 11s (2309 kB/s)
+Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 4%Reading package lists... 4%Reading package lists... 5%Reading package lists... 5%Reading package lists... 35%Reading package lists... 48%Reading package lists... 48%Reading package lists... 48%Reading package lists... 48%Reading package lists... 60%Reading package lists... 60%Reading package lists... 70%Reading package lists... 70%Reading package lists... 75%Reading package lists... 75%Reading package lists... 75%Reading package lists... 75%Reading package lists... 75%Reading package lists... 75%Reading package lists... 75%Reading package lists... 75%Reading package lists... 75%Reading package lists... 85%Reading package lists... 85%Reading package lists... 94%Reading package lists... 94%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... Done
+root@c8ba4402905a:/# apt-get install wget
+Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 4%Reading package lists... 4%Reading package lists... 5%Reading package lists... 5%Reading package lists... 35%Reading package lists... 48%Reading package lists... 48%Reading package lists... 48%Reading package lists... 48%Reading package lists... 60%Reading package lists... 60%Reading package lists... 70%Reading package lists... 70%Reading package lists... 75%Reading package lists... 75%Reading package lists... 75%Reading package lists... 75%Reading package lists... 75%Reading package lists... 75%Reading package lists... 75%Reading package lists... 75%Reading package lists... 75%Reading package lists... 85%Reading package lists... 85%Reading package lists... 94%Reading package lists... 94%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... Done
+Building dependency tree... 0%Building dependency tree... 0%Building dependency tree... 50%Building dependency tree... 50%Building dependency tree       
+Reading state information... 0%Reading state information... 2%Reading state information... Done
+The following NEW packages will be installed:
+  wget
+0 upgraded, 1 newly installed, 0 to remove and 34 not upgraded.
+Need to get 348 kB of archives.
+After this operation, 1012 kB of additional disk space will be used.
+0% [Working]            Get:1 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 wget amd64 1.20.3-1ubuntu2 [348 kB]
+1% [1 wget 4096 B/348 kB 1%]28% [1 wget 123 kB/348 kB 35%]                              100% [Working]              Fetched 348 kB in 1s (290 kB/s)
+debconf: delaying package configuration, since apt-utils is not installed
+Selecting previously unselected package wget.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 6860 files and directories currently installed.)
+Preparing to unpack .../wget_1.20.3-1ubuntu2_amd64.deb ...
+Unpacking wget (1.20.3-1ubuntu2) ...
+Setting up wget (1.20.3-1ubuntu2) ...
+root@c8ba4402905a:/# ^?[Kwget -qO - https://www.mongodb.org/static/pgp/server-6.0.ascc | apt-key add -
+OK
+root@c8ba4402905a:/# echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt//ubuntu bionic/mongodb-org/6.0 multiverse" | tee /etc/apt/sources.list.d/mongodb--org-6.0.list
+deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/6.0 multiverse
+root@c8ba4402905a:/# ^?[Kapt-get install -y mongodb-mongosh
+Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 4%Reading package lists... 4%Reading package lists... 5%Reading package lists... 5%Reading package lists... 36%Reading package lists... 48%Reading package lists... 48%Reading package lists... 48%Reading package lists... 48%Reading package lists... 60%Reading package lists... 60%Reading package lists... 70%Reading package lists... 70%Reading package lists... 75%Reading package lists... 75%Reading package lists... 75%Reading package lists... 75%Reading package lists... 75%Reading package lists... 75%Reading package lists... 75%Reading package lists... 75%Reading package lists... 76%Reading package lists... 85%Reading package lists... 85%Reading package lists... 94%Reading package lists... 94%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... Done
+Building dependency tree... 0%Building dependency tree... 0%Building dependency tree... 50%Building dependency tree... 50%Building dependency tree       
+Reading state information... 0%Reading state information... 2%Reading state information... Done
+The following NEW packages will be installed:
+  mongodb-mongosh
+0 upgraded, 1 newly installed, 0 to remove and 34 not upgraded.
+Need to get 41.7 MB of archives.
+After this operation, 183 MB of additional disk space will be used.
+0% [Working]            Get:1 http://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4/multiverse amd64 mongodb-mongosh amd64 1.8.2 [41.7 MB]
+0% [1 mongodb-mongosh 2776 B/41.7 MB 0%]4% [1 mongodb-mongosh 2344 kB/41.7 MB 6%]10% [1 mongodb-mongosh 5258 kB/41.7 MB 13%]16% [1 mongodb-mongosh 8192 kB/41.7 MB 20%]21% [1 mongodb-mongosh 11.1 MB/41.7 MB 27%]27% [1 mongodb-mongosh 14.1 MB/41.7 MB 34%]33% [1 mongodb-mongosh 17.0 MB/41.7 MB 41%]38% [1 mongodb-mongosh 19.9 MB/41.7 MB 48%]44% [1 mongodb-mongosh 22.8 MB/41.7 MB 55%]49% [1 mongodb-mongosh 25.8 MB/41.7 MB 62%]55% [1 mongodb-mongosh 28.6 MB/41.7 MB 69%]60% [1 mongodb-mongosh 31.5 MB/41.7 MB 76%]66% [1 mongodb-mongosh 34.3 MB/41.7 MB 82%]                        5330 kB/s 1s71% [1 mongodb-mongosh 37.2 MB/41.7 MB 89%]                        5330 kB/s 0s77% [1 mongodb-mongosh 40.0 MB/41.7 MB 96%]                        5330 kB/s 0s100% [Working]                                                     5330 kB/s 0s                                                                               Fetched 41.7 MB in 8s (5276 kB/s)
+debconf: delaying package configuration, since apt-utils is not installed
+Selecting previously unselected package mongodb-mongosh.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 6871 files and directories currently installed.)
+Preparing to unpack .../mongodb-mongosh_1.8.2_amd64.deb ...
+Unpacking mongodb-mongosh (1.8.2) ...
+Setting up mongodb-mongosh (1.8.2) ...
+root@c8ba4402905a:/# mongosh
+]0;mongosh mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000Current Mongosh Log ID:	6464b8909eb1a7cb2223b6a5
+Connecting to:		[1m[32mmongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.8.2[0m
+Using MongoDB:		4.4.18
+[1m[33mUsing Mongosh[0m:		1.8.2
+
+For mongosh info see: [1mhttps://docs.mongodb.com/mongodb-shell/[0m
+
+
+To help improve our products, anonymous usage data is collected and sent to MongoDB periodically (https://www.mongodb.com/legal/privacy-policy).
+You can opt-out by running the [1mdisableTelemetry()[0m command.
+
+[1G[0J [1G[1G[0Jtest> [7Gshow dbs
+Uncaught [1m[31mMongoServerError[0m: command listDatabases requires authentication
+[1G[0Jtest> [7Gexit
+root@c8ba4402905a:/# mongosh -u root -p example
+]0;mongosh mongodb://<credentials>@127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000Current Mongosh Log ID:	6464b8e6affe49c8e65ca39d
+Connecting to:		[1m[32mmongodb://<credentials>@127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.8.2[0m
+Using MongoDB:		4.4.18
+[1m[33mUsing Mongosh[0m:		1.8.2
+
+For mongosh info see: [1mhttps://docs.mongodb.com/mongodb-shell/[0m
+
+[1G[0J [1G[1m[33m------[0m
+   [1m[33mThe server generated these startup warnings when booting[0m
+   2023-05-17T11:10:45.706+00:00: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+[1m[33m------[0m
+
+[1m[33m------[0m
+   Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+   metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+   
+   The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+   and anyone you share the URL with. MongoDB may use this information to make product
+   improvements and to suggest MongoDB products and deployment options to you.
+   
+   To enable free monitoring, run the following command: db.enableFreeMonitoring()
+   To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+[1m[33m------[0m
+
+[1G[0Jtest> [7Gshow dbs
+[1madmin[0m         100.00 KiB
+[1mconfig[0m         12.00 KiB
+[1mlocal[0m          72.00 KiB
+[1mthe_database[0m   40.00 KiB
+[1G[0Jtest> [7Guse the_database
+switched to db the_database
+[1G[0Jthe_database> [15Gshow collections
+[1mtodos[0m
+[1G[0Jthe_database> [15Gdb.todos.find({}][1G[0Jthe_database> db.todos.find({}[31G)
+[
+  {
+    _id: ObjectId("6464b474b0b2bfc5dc3ded0c"),
+    text: [32m'Write code'[39m,
+    done: [33mtrue[39m
+  },
+  {
+    _id: ObjectId("6464b474b0b2bfc5dc3ded0d"),
+    text: [32m'Learn about containers'[39m,
+    done: [33mfalse[39m
+  }
+]
+[1G[0Jthe_database> [15Gdb.collection.insertOne({text[33mtext[39m: [32m"[39m[32mI[39m[32mn[39m[32mc[39m[32mr[39m[32me[39m[32ma[39m[32ms[39m[32me[39m [32mt[39m[32mh[39m[32me[39m [32mn[39m[32mu[39m[32mm[39m[32mb[39m[32me[39m[32mr[39m [32mo[39m[32mf[39m [32mt[39m[32mo[39m[32mo[39m[32ml[39m[32ms[39m [32mi[39m[32mn[39m [32mm[39m[1G[0Jthe_database> db.collection.insertOne({[33mtext[39m: [32m"Increase the number of tools in my[39m [1G [32mt[39m[32mo[39m[32mo[39m[32ml[39m[32mb[39m[32me[39m[32ml[39m[32mt[39m[32m"[39m, d[36mdo[39mdone[33mdone[39m: #[1A[1G[0Jthe_database> db.collection.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [19G[32m"[39m[32mf[39m[32ma[39m[32ml[39m[32ms[39m[32me[39m[32m"[39m})
+{
+  acknowledged: [33mtrue[39m,
+  insertedId: ObjectId("6464ba0baffe49c8e65ca39e")
+}
+[1G[0Jthe_database> [15G[1G[0Jthe_database> db.collection.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[28G[1A[1G[0Jthe_database> db.todos.find({})[32G
+[
+  {
+    _id: ObjectId("6464b474b0b2bfc5dc3ded0c"),
+    text: [32m'Write code'[39m,
+    done: [33mtrue[39m
+  },
+  {
+    _id: ObjectId("6464b474b0b2bfc5dc3ded0d"),
+    text: [32m'Learn about containers'[39m,
+    done: [33mfalse[39m
+  }
+]
+[1G[0Jthe_database> [15G[1G[0Jthe_database> db.todos.find({})[32G[1G[0Jthe_database> db.collection.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[28G[1D[1A[1G[0Jthe_database> db.collection.insertOne[44m([49m{[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[27G[1D[1A[1G[0Jthe_database> db.collection.insertOne([44m{[49m[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[26G[1D[1A[1G[0Jthe_database> db.collection.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [44m[32m"[49mfalse"[39m})[25G[1D[1A[1G[0Jthe_database> db.collection.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[24G[1D[1D[1D[1D[1D[1A[1G[0Jthe_database> db.collection.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false[44m"[39m[49m})[19G[1D[1A[1G[0Jthe_database> db.collection.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[18G[1D[1D[1D[1D[1D[1D[1D[1D[1A[1G[0Jthe_database> db.collection.insertOne({[33mtext[39m: [44m[32m"[49mIncrease the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[10G[1D[1A[1G[0Jthe_database> db.collection.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[9G[1D[1D[1D[1D[1D[1D[1D[1D[1A[1G[0Jthe_database> db.collection.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[80G[1A[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1G[0Jthe_database> db.collection.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt[44m"[39m[49m, [33mdone[39m: [32m"false"[39m})[46G[1A[1D[1G[0Jthe_database> db.collection.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[45G[1A[1D[1D[1D[1D[1D[1D[1G[0Jthe_database> db.collection.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m[44m}[49m)[39G[1A[1D[1G[0Jthe_database> db.collection.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m}[44m)[49m[38G[1A[1D[1G[0Jthe_database> db.collection.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[37G[1A[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1C[1G[0Jthe_database> db.collectio.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[27G[1A[1G[0Jthe_database> db.collecti.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[26G[1A[1G[0Jthe_database> db.collect.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[25G[1A[1G[0Jthe_database> db.collec.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[24G[1A[1G[0Jthe_database> db.colle.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[23G[1A[1G[0Jthe_database> db.coll.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[22G[1A[1G[0Jthe_database> db.col.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[21G[1A[1G[0Jthe_database> db.co.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[20G[1A[1G[0Jthe_database> db.c.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[19G[1A[1G[0Jthe_database> db..insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[18G[1A[1G[0Jthe_database> db.t.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[19G[1A[1G[0Jthe_database> db.th.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[20G[1A[1G[0Jthe_database> db.the.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[21G[1A[1G[0Jthe_database> db.the_.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[22G[1A[1G[0Jthe_database> db.the_d.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[23G[1A[1G[0Jthe_database> db.the_da.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[24G[1A[1G[0Jthe_database> db.the_dat.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[25G[1A[1G[0Jthe_database> db.the_data.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[26G[1A[1G[0Jthe_database> db.the_datab.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[27G[1A[1G[0Jthe_database> db.the_databa.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[28G[1A[1G[0Jthe_database> db.the_databas.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[29G[1A[1G[0Jthe_database> db.the_database.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[30G[1A[1G[0Jthe_database> db.the_database.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[30G
+{
+  acknowledged: [33mtrue[39m,
+  insertedId: ObjectId("6464ba63affe49c8e65ca39f")
+}
+[1G[0Jthe_database> [15G[1G[0Jthe_database> db.the_database.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[30G[1A[1G[0Jthe_database> db.todos.find({})[32G
+[
+  {
+    _id: ObjectId("6464b474b0b2bfc5dc3ded0c"),
+    text: [32m'Write code'[39m,
+    done: [33mtrue[39m
+  },
+  {
+    _id: ObjectId("6464b474b0b2bfc5dc3ded0d"),
+    text: [32m'Learn about containers'[39m,
+    done: [33mfalse[39m
+  }
+]
+[1G[0Jthe_database> [15G[1G[0Jthe_database> db.todos.find({})[32G[1G[0Jthe_database> db.the_database.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[30G[1D[1A[1G[0Jthe_database> db.the_database.insertOne[44m([49m{[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[29G[1D[1A[1G[0Jthe_database> db.the_database.insertOne([44m{[49m[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[28G[1D[1A[1G[0Jthe_database> db.the_database.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [44m[32m"[49mfalse"[39m})[27G[1D[1A[1G[0Jthe_database> db.the_database.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[26G[1D[1D[1D[1D[1D[1A[1G[0Jthe_database> db.the_database.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false[44m"[39m[49m})[21G[1D[1A[1G[0Jthe_database> db.the_database.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[20G[1D[1D[1D[1D[1D[1D[1D[1D[1A[1G[0Jthe_database> db.the_database.insertOne({[33mtext[39m: [44m[32m"[49mIncrease the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[12G[1D[1A[1G[0Jthe_database> db.the_database.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[11G[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1A[1G[0Jthe_database> db.the_database.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[80G[1A[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1D[1G[0Jthe_database> db.the_database.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt[44m"[39m[49m, [33mdone[39m: [32m"false"[39m})[48G[1A[1D[1G[0Jthe_database> db.the_database.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[47G[1A[1D[1D[1D[1D[1D[1D[1G[0Jthe_database> db.the_database.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m[44m}[49m)[41G[1A[1D[1G[0Jthe_database> db.the_database.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m}[44m)[49m[40G[1A[1D[1G[0Jthe_database> db.the_database.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[39G[1A[1D[1D[1D[1D[1D[1D[1D[1D[1D[1G[0Jthe_database> db.the_databas.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[29G[1A[1G[0Jthe_database> db.the_databa.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[28G[1A[1G[0Jthe_database> db.the_datab.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[27G[1A[1G[0Jthe_database> db.the_data.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[26G[1A[1G[0Jthe_database> db.the_dat.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[25G[1A[1G[0Jthe_database> db.the_da.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[24G[1A[1G[0Jthe_database> db.the_d.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[23G[1A[1G[0Jthe_database> db.the_.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[22G[1A[1G[0Jthe_database> db.the.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[21G[1A[1G[0Jthe_database> db.th.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[20G[1A[1G[0Jthe_database> db.t.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[19G[1A[1G[0Jthe_database> db..insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[18G[1A[1G[0Jthe_database> db.t.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[19G[1A[1G[0Jthe_database> db.to.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[20G[1A[1G[0Jthe_database> db.tod.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[21G[1A[1G[0Jthe_database> db.todo.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[22G[1A[1G[0Jthe_database> db.todos.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[23G[1A[1G[0Jthe_database> db.todos.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[23G
+{
+  acknowledged: [33mtrue[39m,
+  insertedId: ObjectId("6464ba7baffe49c8e65ca3a0")
+}
+[1G[0Jthe_database> [15G[1G[0Jthe_database> db.todos.insertOne({[33mtext[39m: [32m"Increase the number of tools in my toolbelt"[39m, [33mdone[39m: [32m"false"[39m})[23G[1A[1G[0Jthe_database> db.todos.find({})[32G
+[
+  {
+    _id: ObjectId("6464b474b0b2bfc5dc3ded0c"),
+    text: [32m'Write code'[39m,
+    done: [33mtrue[39m
+  },
+  {
+    _id: ObjectId("6464b474b0b2bfc5dc3ded0d"),
+    text: [32m'Learn about containers'[39m,
+    done: [33mfalse[39m
+  },
+  {
+    _id: ObjectId("6464ba7baffe49c8e65ca3a0"),
+    text: [32m'Increase the number of tools in my toolbelt'[39m,
+    done: [32m'false'[39m
+  }
+]
+[1G[0Jthe_database> [15Gexit
+root@c8ba4402905a:/# exit
+exit
+[?2004h]0;teemu@hal: ~/Documents/part12-containers-applications/script-answers[01;32mteemu@hal[00m:[01;34m~/Documents/part12-containers-applications/script-answers[00m$ [?2004l
+exit
+
+Script done on 2023-05-17 14:30:22+03:00 [COMMAND_EXIT_CODE="0"]
