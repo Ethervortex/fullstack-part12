@@ -3,6 +3,16 @@ const { Todo } = require('../mongo')
 const router = express.Router();
 const { getAsync, setAsync } = require('../redis')
 
+// Tehtävä 12.10 lisäys:
+const initializeAddedTodos = async () => {
+  const currentTodos = await getAsync('added_todos')
+  if (currentTodos === null) {
+    await setAsync('added_todos', 0)
+  }
+}
+
+initializeAddedTodos()
+
 /* GET todos listing. */
 router.get('/', async (_, res) => {
   const todos = await Todo.find({})
