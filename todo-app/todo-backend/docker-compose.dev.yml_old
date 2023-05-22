@@ -1,21 +1,10 @@
 version: '3.8'
 
 services:
-  server:
-    image: back-dev
-    build:
-      context: .
-      dockerfile: dev.Dockerfile
-    volumes:
-      - ./:/usr/src/app
-    ports:
-      - 3210:3000
-    environment: 
-      - REDIS_URL=redis://redis:6379
-      - MONGO_URL=mongodb://the_username:the_password@mongo:27017/the_database
-
   mongo:
     image: mongo:4.4.18
+    ports:
+      - 3456:27017
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
@@ -25,6 +14,8 @@ services:
       - ./mongo_data:/data/db
   redis:
     image: redis
+    ports:
+      - 6379:6379
     command: ['redis-server', '--appendonly', 'yes']
     volumes:
       - ./redis_data:/data
