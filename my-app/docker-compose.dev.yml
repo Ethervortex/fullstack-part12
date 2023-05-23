@@ -35,3 +35,5 @@ services:
     ports:
       - 3003:3003
     container_name: blogback-dev
+    environment:
+      - PORT=3003
