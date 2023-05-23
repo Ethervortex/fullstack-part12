@@ -2,4 +2,4 @@ FROM node:16
 WORKDIR /user/src/app
 COPY . .
 RUN npm install
-CMD npm start
+CMD npm run dev
