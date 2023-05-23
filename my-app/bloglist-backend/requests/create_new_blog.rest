@@ -1,0 +1,10 @@
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImdvbGx1bSIsImlkIjoiNjQ0YTM1ZWJlZTgzMTMyMmNiNGRhMTc4IiwiaWF0IjoxNjgyNTg4NzMxfQ.bNRHzM-YR6XXfvGN6Km22zL2xTBwz2X3PSCEFKcRAaw
+
+{
+    "title": "How to create money",
+    "author": "Gordon Gekko",
+    "url": "https://money.com/",
+    "likes": 23
+}
