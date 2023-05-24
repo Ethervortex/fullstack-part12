@@ -13,18 +13,7 @@ services:
     container_name: blogfront-dev
     depends_on:
       - server
-    
-  nginx:
-    image: nginx:1.20.1
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
-    ports:
-      - 8080:80
-    container_name: reverse-proxy
-    depends_on:
-      - app
-      - server
-
+  
   server:
     image: blogback-dev
     build:
@@ -37,3 +26,14 @@ services:
     container_name: blogback-dev
     environment:
       - PORT=3003
+
+  nginx:
+    image: nginx:1.20.1
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - 8080:80
+    container_name: reverse-proxy
+    depends_on:
+      - app
+      - server

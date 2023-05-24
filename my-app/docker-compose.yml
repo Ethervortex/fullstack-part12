@@ -34,4 +34,6 @@ services:
       - ./bloglist-backend:/usr/src/app
     ports:
       - 3003:3003
+    environment:
+      - PORT=3003
     container_name: blogbackend
